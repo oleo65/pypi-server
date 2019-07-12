@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  pypi-server:
+    build: ./server
+    image: pypi-server
+    restart: unless-stopped
+    ports:
+      - 8070:8070
+    volumes:
+      - /opt/wheels:/opt/packages
