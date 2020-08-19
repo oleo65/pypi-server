@@ -9,10 +9,10 @@ spec:
     - web
     - websecure
   routes:
-    - match: Host(`pypi-k8s.olescloud.de`)
+    - match: Host(`pypi.olescloud.de`)
       kind: Rule
       services:
         - name: pypi-server
           port: 80
-  # tls:
-  #   certResolver: default
+  tls:
+    certResolver: default
