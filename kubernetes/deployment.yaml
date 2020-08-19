@@ -33,6 +33,8 @@ spec:
             - mountPath: /opt/packages
               name: pypi-server-packages
       restartPolicy: Always
+      imagePullSecrets:
+        - name: dockyard
       volumes:
         - name: pypi-server-packages
           persistentVolumeClaim:
