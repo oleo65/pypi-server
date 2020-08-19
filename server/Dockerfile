@@ -1,6 +1,6 @@
 FROM python:3-alpine
 
-RUN pip install --no-cache-dir pypiserver
+RUN pip install --no-cache-dir pypiserver passlib
 
 RUN addgroup -g 990 -S pypi && \
     adduser -u 990 -S pypi -G pypi
