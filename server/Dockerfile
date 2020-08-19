@@ -9,7 +9,7 @@ USER pypi:pypi
 
 VOLUME [ "/opt/packages" ]
 
-EXPOSE 80
+EXPOSE 8070
 
 ENTRYPOINT ["pypi-server"]
-CMD ["-p", "80", "--hash-algo", "sha256", "/opt/packages"]
+CMD ["-p", "8070", "--hash-algo", "sha256", "/opt/packages"]
