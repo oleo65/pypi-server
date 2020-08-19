@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: pypi-server
+  namespace: default
+
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`pypi-k8s.olescloud.de`)
+      kind: Rule
+      services:
+        - name: pypi-server
+          port: 80
+  # tls:
+  #   certResolver: default

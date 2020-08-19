@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pypi-server
+  name: pypi-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pypi-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pypi-server
+    spec:
+      containers:
+        - name: pypi-server
+          image: dockyard.olescloud.de/pypi-server:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 125m
+              memory: 96Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: /opt/packages
+              name: pypi-server-packages
+      restartPolicy: Always
+      volumes:
+        - name: pypi-server-packages
+          persistentVolumeClaim:
+            claimName: pypi-server-packages
