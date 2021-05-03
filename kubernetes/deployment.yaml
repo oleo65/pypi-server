@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: pypi-server
-          image: dockyard.olescloud.de/pypi-server:1.1.0
+          image: dockyard.olescloud.de/pypi-server:1.1.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

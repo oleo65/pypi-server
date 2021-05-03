@@ -5,9 +5,9 @@ metadata:
     app: pypi-server
   name: pypi-server-packages
 spec:
-  storageClassName: openebs-jiva-ssd
+  storageClassName: local-storage-no-provisioner
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
+      storage: 5Gi
