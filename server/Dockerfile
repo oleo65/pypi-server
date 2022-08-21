@@ -12,4 +12,4 @@ VOLUME [ "/opt/packages" ]
 EXPOSE 8080
 
 ENTRYPOINT ["pypi-server"]
-CMD ["-p", "8080", "--hash-algo", "sha256", "-P", "/data/.htpasswd","/opt/packages"]
+CMD ["run", "-p", "8080", "--hash-algo", "sha256", "-P", "/data/.htpasswd","/opt/packages"]
